@@ -14,31 +14,11 @@
     <title>Document</title>
   </head>
   <body>
-    <form class="mx-5 mt-5" action="/auth/login" method="post">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input
-          class="form-control"
-          name="name"
-          id="name"
-          type="text"
-          placeholder="Name"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input
-          class="form-control"
-          name="password"
-          id="password"
-          type="password"
-          placeholder="Password"
-        />
-      </div>
+    {% if message %}
+    <h2 class="text-danger">{{message}}</h2>
+    {% endif %}
 
-      <button class="btn btn-primary" type="submit">Login</button>
-    </form>
-
+    <h1>Register</h1>
     <!-- bootstrap script  -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
