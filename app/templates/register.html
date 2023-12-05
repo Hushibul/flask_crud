@@ -18,7 +18,42 @@
     <h2 class="text-danger">{{message}}</h2>
     {% endif %}
 
-    <h1>Register</h1>
+    <h1 class="text-align-center">Register</h1>
+
+    <form class="form" action="/auth/register" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          class="form-control"
+          name="name"
+          id="name"
+          type="text"
+          placeholder="Name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          class="form-control"
+          name="email"
+          id="email"
+          type="text"
+          placeholder="Email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          class="form-control"
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Password"
+        />
+      </div>
+
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
     <!-- bootstrap script  -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
