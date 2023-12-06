@@ -10,8 +10,9 @@ table = 'registered_users'
 connection_pool = connect_to_mysql()
 
 def check_registered_user(email, connection):
-   try: 
-        cursor = connection.cursor()
+   try:      
+        cursor = connection.cursor(buffered=True)
+
         query = f"SELECT * FROM `{table}` WHERE `email` = '{email}'"
         cursor.execute(query)
         result = cursor.fetchone()
@@ -40,7 +41,7 @@ def login():
                is_password_true = sha256_crypt.verify(password, existing_user[3])
                
                if is_password_true:
-                   return render_template('index.html')
+                   return redirect('/product/get-all-product')
                else:
                    return jsonify({'message': 'Invalid password'})
             else:
@@ -74,7 +75,7 @@ def register():
             else: 
                 hashedPassword = sha256_crypt.encrypt(password)
 
-                cursor = connection.cursor()
+                cursor = connection.cursor(buffered=True)
                 query = f"INSERT INTO `{table}` (`name`, `email`, `password`) VALUES ('{name}', '{email}', '{hashedPassword}')"
                 cursor.execute(query)
                 connection.commit()

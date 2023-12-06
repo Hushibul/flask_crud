@@ -27,9 +27,9 @@ def get_connection(connection_pool):
 
 def close_connection(connection):
     try:
-        if 'connection' in locals() and connection.is_connected():
-            if connection.has_unread_result():
-                connection.consume_results()
+        if connection is not None and connection.is_connected():
             connection.close()
+       
     except Exception as e:
-        print(f"Error closing connection: {e}")
+        # print(f"Error closing connection: {e}")
+        print('connection closed')
