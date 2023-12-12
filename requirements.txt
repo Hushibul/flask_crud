@@ -3,3 +3,4 @@ requests==2.31.0
 mysql-connector-python==8.2.0
 python-dotenv==1.0.0
 passlib==1.7.4
+Flask-OAuthlib==0.9.6
